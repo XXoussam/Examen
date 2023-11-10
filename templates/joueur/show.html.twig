@@ -1,0 +1,23 @@
+{% if votes|length > 0 %}
+    <table border="2">
+        <thead>
+        <tr>
+            <th>date</th>
+            <th>noteVote</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for vote in votes%}
+            <tr>
+                <td>{{ vote.date|date('Y-m-d H:i:s') }}</td>
+                <td>{{ vote.noteVote }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+
+    </table>
+    <h3>moyen vote : {{ joueur.moyenneVote }}</h3>
+    {% else %}
+        <h3>votes de {{ joueur.nom }}</h3>
+    <h3>pas de vote</h3>
+{% endif %}

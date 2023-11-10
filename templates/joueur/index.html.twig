@@ -1,0 +1,19 @@
+<h1>Liste des joueurs</h1>
+<table border="1">
+    <tr>
+        <th>Nom</th>
+        <th>Equipe</th>
+        <th>Action</th>
+    </tr>
+    {% for joueur in joueurs | sort %}
+        <tr>
+            <td>{{ joueur.nom | upper}}</td>
+            <td>{{ joueur.equipe }}</td>
+            <td><a href="{{ path('app_joueur_show', {'id': joueur.id}) }}">details</a>&nbsp;
+                <a href="{{ path('app_joueur_vote', {'id': joueur.id}) }}">vote</a></td>
+        </tr>
+    {% endfor %}
+
+</table>
+
+
